@@ -33,7 +33,7 @@ pip install torchopt  # Coming soon!
 Or install from source:
 
 ```bash
-git clone https://github.com/why1249/torchopt.git
+git clone https://github.com/why1249/TorchOpt.git
 cd torchopt
 pip install -e .
 ```
