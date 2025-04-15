@@ -27,7 +27,7 @@ TorchOpt is a lightweight, extensible framework for optimization algorithms buil
 ## Installation
 
 ```bash
-pip install torchopt
+pip install torchopt  # Coming soon!
 ```
 
 Or install from source:
@@ -91,11 +91,15 @@ TorchOpt includes several classic benchmark functions:
 - **Ackley**: A function with many local minima but one global minimum
 - **Schwefel**: A complex function with the global minimum far from the center
 
+More benchmark functions will be added in future releases.
+
 ## Available Optimization Algorithms
 
 Currently implemented algorithms:
 
 - **PSO (Particle Swarm Optimization)**: A population-based stochastic optimization technique
+
+Additional optimization algorithms are planned for future updates.
 
 ## Extending TorchOpt
 
