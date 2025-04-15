@@ -57,5 +57,4 @@ class PSO(Optimizer):
         return self.personal_best[best_idx], self.personal_best_fitness[best_idx]
     
     def _evaluate(self, positions):
-        """评估种群适应度"""
         return self.test_function(positions)

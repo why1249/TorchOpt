@@ -5,8 +5,8 @@ class TestFunction(ABC):
     def __init__(self, dim: int, bounds: tuple[torch.Tensor, torch.Tensor]):
         """
         Args:
-            dim: 问题维度
-            bounds: (min_bounds, max_bounds) 每个维度的上下界
+            dim: the dimension of the function
+            bounds: (min_bounds, max_bounds) the bounds of the function
         """
         self.dim = dim
         self.min_bounds, self.max_bounds = bounds
@@ -19,7 +19,7 @@ class TestFunction(ABC):
     
     @abstractmethod
     def evaluate(self, x: torch.Tensor) -> torch.Tensor:
-        """评估函数，支持批量计算"""
+        """the function to be optimized"""
         pass
     
     def __call__(self, x: torch.Tensor) -> torch.Tensor:
@@ -43,11 +43,12 @@ class Optimizer(ABC):
                  device: str = 'cpu',):
         """
         Args:
-            test_function: 测试函数实例
-            population_size: 种群大小
-            max_iter: 最大迭代次数
-            parameters: 算法特定参数
-            n_workers: 并行工作数
+            test_function: the function to be optimized
+            population_size: the number of individuals in the population
+            max_iter: the maximum number of iterations
+            parameters: the parameters of the algorithm
+            print_interval: the interval of printing the best fitness
+            device: the device to run the algorithm on
         """
         self.test_function = test_function
         self.population_size = population_size
@@ -59,16 +60,16 @@ class Optimizer(ABC):
         
     @abstractmethod
     def initialize(self):
-        """初始化种群"""
+        """initialize the population and parameters"""
         pass
     
     @abstractmethod
     def update(self):
-        """单次迭代更新"""
+        """update the population and parameters"""
         pass
     
     def optimize(self) -> tuple[torch.Tensor, float]:
-        """执行完整优化过程"""
+        """Optimize the function"""
         self.initialize()
         
         for iter in range(self.max_iter):
@@ -82,7 +83,7 @@ class Optimizer(ABC):
         return best_solution, best_fitness
     
     def _get_best(self) -> tuple[torch.Tensor, float]:
-        """获取当前最优解和适应度"""
+        """"Get the best solution and fitness"""
         pass
     
     @property
