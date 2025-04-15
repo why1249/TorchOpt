@@ -1,4 +1,4 @@
-from core.base import TestFunction
+from torchopt.core.base import TestFunction
 import torch
 
 class Sphere(TestFunction):

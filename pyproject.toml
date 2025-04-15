@@ -5,10 +5,14 @@ description = "A modular optimization library based on PyTorch"
 authors = [{name = "why1249", email = "weihy36@mail2.sysu.edu.cn"}]
 readme = "README.md"
 requires-python = ">=3.9"
-license = {text = "MIT"}
+license = { file = "LICENSE" }
 
 dependencies = [
     "torch>=2.0",
     "numpy",
     "tqdm",
 ]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"

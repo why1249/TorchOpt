@@ -1,4 +1,4 @@
-from core.base import *
+from torchopt.core.base import *
 import torch
 
 class PSO(Optimizer):
