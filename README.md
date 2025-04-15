@@ -4,13 +4,16 @@ A modular optimization library based on PyTorch for implementing and experimenti
 
 ## Motivation
 
-While studying optimization algorithms, I found that existing libraries for optimization and benchmark testing were often fragmented, lacked compatibility, and made it difficult to compare different algorithms effectively. Additionally, parallelizing these algorithms was not straightforward.
+As an ordinary college student learning optimization algorithms, I found that existing libraries for optimization and benchmark testing were often fragmented, lacked compatibility, and made it difficult to compare different algorithms effectively. Additionally, parallelizing these algorithms was not straightforward.
 
-To address these challenges, I decided to leverage PyTorch's powerful tensor operations and parallel computing capabilities to create a unified framework. The goal of TorchOpt is to:
+During my studies, I wanted to create a project that would help me better understand these algorithms while also providing a practical tool for experimentation. By leveraging PyTorch's powerful tensor operations and parallel computing capabilities, I created this unified framework to aid my learning process.
+
+The goal of TorchOpt is to:
 
 - Provide a modular design with base classes that can easily integrate various test functions and optimization algorithms.
 - Enable seamless GPU acceleration for faster computation.
 - Simplify the process of comparing and experimenting with different optimization techniques.
+- Serve as a learning tool for students like me who are interested in optimization algorithms.
 
 ## Overview
 
