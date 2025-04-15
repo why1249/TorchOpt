@@ -1,4 +1,4 @@
-# TorchOpt
+# TorchOptLib
 
 A modular optimization library based on PyTorch for implementing and experimenting with various optimization algorithms.
 
@@ -8,7 +8,7 @@ As an ordinary college student learning optimization algorithms, I found that ex
 
 During my studies, I wanted to create a project that would help me better understand these algorithms while also providing a practical tool for experimentation. By leveraging PyTorch's powerful tensor operations and parallel computing capabilities, I created this unified framework to aid my learning process.
 
-The goal of TorchOpt is to:
+The goal of TorchOptLib is to:
 
 - Provide a modular design with base classes that can easily integrate various test functions and optimization algorithms.
 - Enable seamless GPU acceleration for faster computation.
@@ -17,7 +17,7 @@ The goal of TorchOpt is to:
 
 ## Overview
 
-TorchOpt is a lightweight, extensible framework for optimization algorithms built on PyTorch. It provides:
+TorchOptLib is a lightweight, extensible framework for optimization algorithms built on PyTorch. It provides:
 
 - A collection of classic benchmark functions for testing optimization algorithms
 - Easy-to-extend base classes for creating custom optimization algorithms
@@ -34,7 +34,7 @@ Or install from source:
 
 ```bash
 git clone https://github.com/why1249/TorchOptLib.git
-cd torchoptlib
+cd TorchOptLib
 pip install -e .
 ```
 
@@ -48,8 +48,8 @@ pip install -e .
 ## Quick Start
 
 ```python
-from torchopt.benchmarks import classic
-from torchopt.algorithm import pso
+from torchoptlib.benchmarks import classic
+from torchoptlib.algorithm import pso
 import torch
 
 # Define test function
@@ -82,7 +82,7 @@ print(f"Best fitness: {best_fitness}")
 
 ## Available Benchmark Functions
 
-TorchOpt includes several classic benchmark functions:
+TorchOptLib includes several classic benchmark functions:
 
 - **Sphere**: A simple unimodal function
 - **Rastrigin**: A highly multimodal function with many local minima
@@ -101,14 +101,14 @@ Currently implemented algorithms:
 
 Additional optimization algorithms are planned for future updates.
 
-## Extending TorchOpt
+## Extending TorchOptLib
 
 ### Creating a New Test Function
 
 Extend the `TestFunction` base class:
 
 ```python
-from torchopt.core.base import TestFunction
+from torchoptlib.core.base import TestFunction
 import torch
 
 class MyCustomFunction(TestFunction):
@@ -125,7 +125,7 @@ class MyCustomFunction(TestFunction):
 Extend the `Optimizer` base class:
 
 ```python
-from torchopt.core.base import Optimizer, TestFunction
+from torchoptlib.core.base import Optimizer, TestFunction
 import torch
 
 class MyOptimizer(Optimizer):
