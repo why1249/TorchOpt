@@ -27,14 +27,14 @@ TorchOpt is a lightweight, extensible framework for optimization algorithms buil
 ## Installation
 
 ```bash
-pip install torchopt  # Coming soon!
+pip install torchoptlib  # Coming soon!
 ```
 
 Or install from source:
 
 ```bash
-git clone https://github.com/why1249/TorchOpt.git
-cd torchopt
+git clone https://github.com/why1249/TorchOptLib.git
+cd torchoptlib
 pip install -e .
 ```
 

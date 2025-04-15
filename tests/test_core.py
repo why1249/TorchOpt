@@ -1,6 +1,6 @@
 import unittest
 import torch
-from torchopt.core.base import TestFunction
+from torchoptlib.core.base import TestFunction
 
 class MockTestFunction(TestFunction):
     """A mock implementation of TestFunction for testing"""

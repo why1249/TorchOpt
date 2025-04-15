@@ -1,7 +1,7 @@
 import unittest
 import torch
 import numpy as np
-from torchopt.benchmarks.classic import Sphere, Rastrigin, Rosenbrock, Griewank, Ackley, Schwefel
+from torchoptlib.benchmarks.classic import Sphere, Rastrigin, Rosenbrock, Griewank, Ackley, Schwefel
 
 class TestBenchmarks(unittest.TestCase):
     def setUp(self):

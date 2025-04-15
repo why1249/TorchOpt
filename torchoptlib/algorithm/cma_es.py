@@ -1,4 +1,4 @@
-from torchopt.core.base import *
+from torchoptlib.core.base import *
 import torch
 import numpy as np
 

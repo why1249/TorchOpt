@@ -1,9 +1,9 @@
 import unittest
 import torch
 import numpy as np
-from torchopt.benchmarks.classic import Sphere, Rastrigin
-from torchopt.algorithm.pso import PSO
-from torchopt.algorithm.cma_es import CMAES
+from torchoptlib.benchmarks.classic import Sphere, Rastrigin
+from torchoptlib.algorithm.pso import PSO
+from torchoptlib.algorithm.cma_es import CMAES
 
 class TestOptimizers(unittest.TestCase):
     def setUp(self):

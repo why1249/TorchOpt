@@ -1,11 +1,12 @@
-from torchopt.benchmarks import classic
-from torchopt.algorithm import pso, cma_es
-import torchopt
+from torchoptlib.benchmarks import classic
+from torchoptlib.algorithm import pso, cma_es
+import torchoptlib
 import torch
+print(torch.__version__)
 if __name__ == "__main__":
     # Test function
     dim = 100
-    print(torchopt.__file__)
+    print(torchoptlib.__file__)
     bounds = (torch.tensor([-5.12] * dim), torch.tensor([5.12] * dim))
     test_function = classic.Rastrigin(dim=dim, bounds=bounds)
     
