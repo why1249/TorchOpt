@@ -33,7 +33,7 @@ class Griewank(TestFunction):
     
     def evaluate(self, x: torch.Tensor) -> torch.Tensor:
         sum_term = torch.sum(x ** 2, dim=-1) / 4000
-        prod_term = torch.prod(torch.cos(x / torch.sqrt(torch.arange(1, self.dim + 1).to(self.device))), dim=-1)
+        prod_term = torch.prod(torch.cos(x / torch.sqrt(torch.arange(1, self.dim + 1).to(x.device))), dim=-1)
         return sum_term - prod_term + 1
     
 class Ackley(TestFunction):
