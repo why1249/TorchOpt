@@ -48,8 +48,8 @@ pip install -e .
 ## Quick Start
 
 ```python
-from algorithm import pso
-from benchmarks import classic
+from torchopt.benchmarks import classic
+from torchopt.algorithm import pso
 import torch
 
 # Define test function
@@ -108,7 +108,7 @@ Additional optimization algorithms are planned for future updates.
 Extend the `TestFunction` base class:
 
 ```python
-from core.base import TestFunction
+from torchopt.core.base import TestFunction
 import torch
 
 class MyCustomFunction(TestFunction):
@@ -125,7 +125,7 @@ class MyCustomFunction(TestFunction):
 Extend the `Optimizer` base class:
 
 ```python
-from core.base import Optimizer, TestFunction
+from torchopt.core.base import Optimizer, TestFunction
 import torch
 
 class MyOptimizer(Optimizer):
