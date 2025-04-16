@@ -1,11 +1,25 @@
 [project]
-name = "torchopt"
+name = "torchoptlib"  # 修改为与项目名称一致
 version = "0.1.0"
-description = "A modular optimization library based on PyTorch"
+description = "A modular optimization library based on PyTorch for implementing and experimenting with various optimization algorithms"
 authors = [{name = "why1249", email = "weihy36@mail2.sysu.edu.cn"}]
 readme = "README.md"
 requires-python = ">=3.9"
 license = { file = "LICENSE" }
+keywords = ["optimization", "pytorch", "machine-learning", "swarm-intelligence", "evolutionary-algorithms"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries",
+]
 
 dependencies = [
     "torch>=2.0",
@@ -13,6 +27,30 @@ dependencies = [
     "tqdm",
 ]
 
+[project.urls]
+"Homepage" = "https://github.com/why1249/TorchOptLib"
+"Bug Tracker" = "https://github.com/why1249/TorchOptLib/issues"
+"Documentation" = "https://github.com/why1249/TorchOptLib"
+
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+packages = ["torchoptlib"]
+
+[tool.setuptools.package-data]
+torchoptlib = ["py.typed", "**/*.pyi"]
+
+[tool.black]
+line-length = 88
+target-version = ["py39"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
