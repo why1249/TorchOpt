@@ -98,6 +98,7 @@ More benchmark functions will be added in future releases.
 Currently implemented algorithms:
 
 - **PSO (Particle Swarm Optimization)**: A population-based stochastic optimization technique
+- **CMA-ES (Covariance Matrix Adaptation Evolution Strategy)**: An evolutionary algorithm for difficult non-linear non-convex optimization problems
 
 Additional optimization algorithms are planned for future updates.
 

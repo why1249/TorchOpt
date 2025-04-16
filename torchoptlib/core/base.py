@@ -1,6 +1,6 @@
 import torch
 from abc import ABC, abstractmethod
-
+import time
 class TestFunction(ABC):
     def __init__(self, dim: int, bounds: tuple[torch.Tensor, torch.Tensor]):
         """
@@ -70,6 +70,7 @@ class Optimizer(ABC):
     
     def optimize(self) -> tuple[torch.Tensor, float]:
         """Optimize the function"""
+        start_time = time.time()
         self.initialize()
         
         for iter in range(self.max_iter):
@@ -78,8 +79,10 @@ class Optimizer(ABC):
             self.history.append(best_fitness.item())
             
             if (iter + 1) % self.print_interval == 0 or iter == self.max_iter - 1:
-                print(f"Iteration {iter + 1}/{self.max_iter}: Best fitness = {best_fitness.item()}")
-                
+                elapsed_time = time.time() - start_time
+                print(f"Iteration {iter + 1}/{self.max_iter}: Best fitness = {best_fitness.item()}, Elapsed time = {elapsed_time:.2f}s")
+        
+        print(f"Optimization finished in {time.time() - start_time:.2f}s")
         return best_solution, best_fitness
     
     def _get_best(self) -> tuple[torch.Tensor, float]:
