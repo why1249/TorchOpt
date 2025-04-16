@@ -32,13 +32,15 @@ dependencies = [
 "Bug Tracker" = "https://github.com/why1249/TorchOptLib/issues"
 "Documentation" = "https://github.com/why1249/TorchOptLib"
 
+[tool.setuptools.packages]
+find = {}  # 自动发现所有包
+
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 package-dir = {"" = "."}
-packages = ["torchoptlib"]
 
 [tool.setuptools.package-data]
 torchoptlib = ["py.typed", "**/*.pyi"]
