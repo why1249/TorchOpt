@@ -2,8 +2,9 @@ import unittest
 import torch
 import numpy as np
 from torchoptlib.benchmarks.classic import Sphere, Rastrigin
-from torchoptlib.algorithm.pso import PSO
-from torchoptlib.algorithm.cma_es import CMAES
+from torchoptlib.algorithms.pso import PSO
+from torchoptlib.algorithms.cma_es import CMAES
+from torchoptlib.algorithms.de import DE
 
 class TestOptimizers(unittest.TestCase):
     def setUp(self):
@@ -166,6 +167,85 @@ class TestOptimizers(unittest.TestCase):
         
         # 最终结果应该比初始结果更好
         self.assertLess(fitness.item(), cmaes.history[0])
+    
+    def test_de_initialization(self):
+        # 测试DE初始化
+        de = DE(
+            test_function=self.sphere,
+            population_size=self.population_size,
+            max_iter=self.max_iter,
+            parameters={'F': 0.8, 'CR': 0.9, 'strategy': 'rand/1/bin'},
+            print_interval=self.print_interval
+        )
+        
+        de.initialize()
+        
+        # 检查初始化后的属性
+        self.assertEqual(de.population.shape, (self.population_size, self.dim))
+        self.assertEqual(de.fitness.shape, (self.population_size,))
+        
+        # 检查种群是否在界限内
+        min_b, max_b = self.bounds
+        self.assertTrue(torch.all(de.population >= min_b))
+        self.assertTrue(torch.all(de.population <= max_b))
+
+        # 检查最优解是否在界限内
+        self.assertTrue(torch.all(de.best_solution >= min_b))
+        self.assertTrue(torch.all(de.best_solution <= max_b))
+
+    def test_de_update(self):
+        # 测试DE更新
+        de = DE(
+            test_function=self.sphere,
+            population_size=self.population_size,
+            max_iter=self.max_iter,
+            parameters={'F': 0.8, 'CR': 0.9, 'strategy': 'rand/1/bin'},
+            print_interval=self.print_interval
+        )
+        
+        de.initialize()
+        
+        # 执行一次更新
+        de.update()
+        
+        # 检查种群和适应度
+        self.assertEqual(de.population.shape, (self.population_size, self.dim))
+        self.assertEqual(de.fitness.shape, (self.population_size,))
+        
+        # 检查种群是否在界限内
+        min_b, max_b = self.bounds
+        self.assertTrue(torch.all(de.population >= min_b))
+        self.assertTrue(torch.all(de.population <= max_b))
+
+        # 检查最优解是否在界限内
+        self.assertTrue(torch.all(de.best_solution >= min_b))
+        self.assertTrue(torch.all(de.best_solution <= max_b))
+
+        # 检查最优适应度是否更新
+        best_idx = torch.argmin(de.fitness)
+        self.assertTrue(de.best_fitness <= de.fitness[best_idx])
+
+    def test_de_optimize(self):
+        # 测试DE优化过程
+        de = DE(
+            test_function=self.sphere,
+            population_size=self.population_size,
+            max_iter=self.max_iter,
+            parameters={'F': 0.8, 'CR': 0.9, 'strategy': 'rand/1/bin'},
+            print_interval=self.print_interval
+        )
+        
+        solution, fitness = de.optimize()
+        
+        # 检查最终解决方案
+        self.assertEqual(solution.shape, (self.dim,))
+        self.assertTrue(isinstance(fitness.item(), float))
+        
+        # 检查历史记录
+        self.assertEqual(len(de.history), self.max_iter)
+        
+        # 最终结果应该比初始结果更好
+        self.assertLess(fitness.item(), de.history[0])
 
 if __name__ == '__main__':
     unittest.main()

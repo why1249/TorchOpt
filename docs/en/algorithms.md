@@ -8,6 +8,7 @@ Currently implemented algorithms in the library include:
 
 - **PSO (Particle Swarm Optimization)**: A population-based stochastic optimization technique
 - **CMA-ES (Covariance Matrix Adaptation Evolution Strategy)**: An evolutionary algorithm for difficult non-linear non-convex optimization problems
+- **DE (Differential Evolution)**: A population-based stochastic optimization algorithm for solving complex, non-linear, and multi-modal optimization problems.
 
 Each algorithm can be called through a simple interface and supports GPU acceleration.
 

@@ -1,6 +1,6 @@
 [project]
 name = "torchoptlib"  # 修改为与项目名称一致
-version = "0.1.0"
+version = "0.1.1"
 description = "A modular optimization library based on PyTorch for implementing and experimenting with various optimization algorithms"
 authors = [{name = "why1249", email = "weihy36@mail2.sysu.edu.cn"}]
 readme = "README.md"

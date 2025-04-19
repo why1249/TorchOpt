@@ -1,5 +1,5 @@
 from torchoptlib.benchmarks import classic
-from torchoptlib.algorithm import pso, cma_es
+from torchoptlib.algorithms import pso, cma_es, de
 import torchoptlib
 import torch
 print(torchoptlib.__version__)
@@ -45,6 +45,26 @@ if __name__ == "__main__":
     )
 
     best_solution, best_fitness = cma_es_instance.optimize()
+
+    print(f"Best solution: {best_solution}")
+    print(f"Best fitness: {best_fitness}")
+
+    # DE
+    parameters = {
+        'F': 0.8,
+        'CR': 0.9,
+        'strategy': 'rand/1/bin',
+    }
+
+    de_instance = de.DE(
+        test_function=test_function,
+        population_size=50,
+        max_iter=10000,
+        parameters=parameters,
+        print_interval=100,
+    )
+
+    best_solution, best_fitness = de_instance.optimize()
 
     print(f"Best solution: {best_solution}")
     print(f"Best fitness: {best_fitness}")

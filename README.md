@@ -99,6 +99,7 @@ Currently implemented algorithms:
 
 - **PSO (Particle Swarm Optimization)**: A population-based stochastic optimization technique
 - **CMA-ES (Covariance Matrix Adaptation Evolution Strategy)**: An evolutionary algorithm for difficult non-linear non-convex optimization problems
+- **DE (Differential Evolution)**: A population-based stochastic optimization algorithm for solving complex, non-linear, and multi-modal optimization problems.
 
 Additional optimization algorithms are planned for future updates.
 
